@@ -1,9 +1,8 @@
-/*https://codility.com/programmers/task/winter_lights/ */
-
 import java.time.Duration;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 // you can also use imports, for example:
 // import java.util.*;
@@ -19,11 +18,12 @@ class Solution {
 		String sub = null;
 		int len = S.length();
 		if(len == 1) return 1;
-
+		
 		int dcount = 0;
 		int[] d = {0,1,2,3,4,5,6,7,8,9};
 		for(int i=0;i<10;i++){
 			if(S.indexOf(d[i]+"")>-1)dcount++;
+			if(dcount>1)break;
 		}
 		if(dcount == 1){ return (len*(len+1)/2);}
 		for(int l = 1;l<len;l++){
@@ -42,7 +42,6 @@ class Solution {
 				}
 			}
 		}
-
 		return (int)ct%1000000007;
 
 	}
@@ -74,7 +73,13 @@ class Solution {
 
 //	public static void main(String[] a){
 //		Solution s = new Solution();
-//		String str = "0200202002020020200202002020020200202002020020200202002020020200202002020020200202002020020200202002";
+//		String str = "";
+//		Random r = new Random();
+//		for(int i=0;i<400;i++)
+//		{
+//			str += r.nextInt(10);
+//		}
+//		//System.out.println(str);
 //		Instant start = Instant.now();
 //		System.out.println(s.solution(str));
 //		Instant end = Instant.now();
